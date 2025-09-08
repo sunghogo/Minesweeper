@@ -23,6 +23,11 @@ public class UpdatedTMP : MonoBehaviour
             if (GameManager.Instance) tmp.text = GameManager.Instance.RemainingMines.ToString();
             GameManager.OnRemainingMinesChanged += UpdateText;
         }
+
+        HandleGameOver();
+
+        GameManager.OnGameOver += HandleGameOver;
+        GameManager.OnGameStart += HandleGameStart;
     }
 
     void OnDestroy()
@@ -30,10 +35,23 @@ public class UpdatedTMP : MonoBehaviour
         if (gameObject.CompareTag("Score") || gameObject.CompareTag("Time")) GameManager.OnScoreChanged -= UpdateText;
         else if (gameObject.CompareTag("High Score") || gameObject.CompareTag("Best")) GameManager.OnHighScoreChanged -= UpdateText;
         else if (gameObject.CompareTag("Mines")) GameManager.OnRemainingMinesChanged -= UpdateText;
+
+        GameManager.OnGameOver -= HandleGameOver;
+        GameManager.OnGameStart -= HandleGameStart;
     }
 
     void UpdateText(int number)
     {
         tmp.text = $"{gameObject.tag}: {number}";
+    }
+
+    void HandleGameStart()
+    {
+        tmp.enabled = true;
+    }
+
+    void HandleGameOver()
+    { 
+        tmp.enabled = false;
     }
 }
