@@ -972,7 +972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3385552841599246975, guid: 9c6cc438c99ab4ec3a802774e66a290d, type: 3}
       propertyPath: minesSpawned
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7924016032136827470, guid: 9c6cc438c99ab4ec3a802774e66a290d, type: 3}
       propertyPath: m_LocalPosition.x

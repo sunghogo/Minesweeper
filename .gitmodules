@@ -1,0 +1,3 @@
+[submodule "Minesweeper Build WebGL"]
+	path = Minesweeper Build WebGL
+	url = https://github.com/sunghogo/MinesweeperWebGL.git
